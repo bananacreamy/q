@@ -8,7 +8,7 @@ echo color("purple","[♥] NGETIK NOMORNYA BEGINI YA 62xxxxxxxxxx \n");
 echo color("nevy","  [♡] JANGAN LUPA FOLLOW IG GUE YA : @Bananacreamy \n");
 echo color("yellow","[♥] KADANG AMBIL OTOMATIS, KADANG MANUAL NIH SC \n");
 echo color("white"," [♡] MAKLUM LAH NAMANYA JUGA SC GRATISAN \n");
-echo color("cyan","  [♥] BACA DOA DULU SEBELUM MULAI , OKAY?^.^ \n");
+echo color("cyan","  [♥] SPECIAL BUAT LO KAWAN TUHAN ♪ ♬ ヾ(´︶`♡)ﾉ ♬ ♪ \n");
 echo color("green","# # # # # # # # # # # # # # # # # # # # # # # \n");
 function change(){
         $nama = nama();
@@ -56,7 +56,7 @@ function change(){
         echo color("yellow",".");
         sleep(20);
         }
-        $code1 = request('/go-promotions/v1/promotions/enrollments', $token, '{"promo_code":"COBAGOFOOD010420A"}');
+        $code1 = request('/go-promotions/v1/promotions/enrollments', $token, '{"promo_code":"COBAGOFOOD010420B"}');
         $message = fetch_value($code1,'"message":"','"');
         if(strpos($code1, 'Promo kamu sudah bisa dipakai')){
         echo "\n".color("green","+] Message: ".$message);
