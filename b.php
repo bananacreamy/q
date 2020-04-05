@@ -99,8 +99,7 @@ function change(){
          }else{
          goto setpin;
          }
-         }else{
-         echo color("red","-] OTP LO YG BENER DONG");
+         }else{("red","-] OTP LO YG BENER DONG");
          echo"\n==================================\n\n";
          echo color("yellow","!] Silahkan input kembali\n");
          goto otp;
