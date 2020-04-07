@@ -8,7 +8,7 @@ echo color("purple","[♥] NGETIK NOMORNYA BEGINI YA 62xxxxxxxxxx \n");
 echo color("nevy","  [♡] JANGAN LUPA FOLLOW IG GUE YA : @Bananacreamy \n");
 echo color("yellow","[♥] KADANG AMBIL OTOMATIS, KADANG MANUAL NIH SC \n");
 echo color("white"," [♡] MAKLUM LAH NAMANYA JUGA SC GRATISAN \n");
-echo color("cyan","  [♥] SPECIAL BUAT LO KAWAN TUHAN ♪ ♬ ヾ(´︶`♡)ﾉ ♬ ♪ \n");
+echo color("cyan","  [♥] BACA DOA DULU SEBELUM MULAI , OKAY?^.^ \n");
 echo color("green","# # # # # # # # # # # # # # # # # # # # # # # \n");
 function change(){
         $nama = nama();
@@ -32,11 +32,29 @@ function change(){
         $uuid = getStr('"resource_owner_id":',',',$verif);
         echo "\n".color("yellow","+] Your access token : ".$token."\n\n");
         save("token.txt",$token);
+        echo "\n".color("nevy","?] MAU NGAMBIL VOCER GA?: y/n ");
+        $pilihan = trim(fgets(STDIN));
+        if($pilihan == "y" || $pilihan == "Y"){
+        echo color("red","===========(NGAMBIL VOCER)===========");
+        echo "\n".color("yellow","!] Ngambil voc OJEK 8K");
+        echo "\n".color("yellow","!] Please wait");
+        for($a=1;$a<=3;$a++){
+        echo color("yellow",".");
+        sleep(3);
+        }
+        $code1 = request('/go-promotions/v1/promotions/enrollments', $token, '{"promo_code":"COBAGORIDEPAY"}');
+        $message = fetch_value($code1,'"message":"','"');
+        if(strpos($code1, 'Promo kamu sudah bisa dipakai')){
+        echo "\n".color("green","+] Message: ".$message);
+        goto gocar;
+        }else{
+        echo "\n".color("red","-] Message: ".$message);
+        gocar:
         echo "\n".color("yellow","!] Ngambil voc MAKAN 15+10+5");
         echo "\n".color("yellow","!] Please wait");
         for($a=1;$a<=3;$a++){
         echo color("yellow",".");
-        sleep(5);
+        sleep(35);
         }
         $code1 = request('/go-promotions/v1/promotions/enrollments', $token, '{"promo_code":"COBAGOFOOD010420A"}');
         $message = fetch_value($code1,'"message":"','"');
@@ -55,6 +73,19 @@ function change(){
         }else{
         echo "\n".color("red","-] Message: ".$message);
         }
+        gofood:
+        echo "\n".color("yellow","!] Ngambil voc Angkot pot 14K");
+        echo "\n".color("yellow","!] Please wait");
+        for($a=1;$a<=3;$a++){
+        echo color("yellow",".");
+        sleep(3);
+        }
+        $code1 = request('/go-promotions/v1/promotions/enrollments', $token, '{"promo_code":"COBAGOCAR14"}');
+        $message = fetch_value($code1,'"message":"','"');
+        if(strpos($code1, 'Promo kamu sudah bisa dipakai')){
+        echo "\n".color("green","+] Message: ".$message);
+        sleep(1);
+        sleep(3);
         $cekvoucher = request('/gopoints/v3/wallet/vouchers?limit=10&page=1', $token);
         $total = fetch_value($cekvoucher,'"total_vouchers":',',');
         $voucher3 = getStr1('"title":"','",',$cekvoucher,"3");
@@ -99,7 +130,8 @@ function change(){
          }else{
          goto setpin;
          }
-         }else{("red","-] OTP LO YG BENER DONG");
+         }else{
+         echo color("red","-] OTP LO YG BENER DONG");
          echo"\n==================================\n\n";
          echo color("yellow","!] Silahkan input kembali\n");
          goto otp;
